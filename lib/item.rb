@@ -21,5 +21,5 @@ class Item
   def stock(amount)
     @quantity += amount
     true
-  end
+  end 
 end
