@@ -6,10 +6,11 @@ class Bluray < Item
 
   def initialize(name, price, runtime, producer, director)
      super(name, price)
-     @runtime=runtime
-     @producer=producer
-     @director=director
+     @runtime = runtime
+     @producer = producer
+     @director = director
   end
 
+  
 
 end

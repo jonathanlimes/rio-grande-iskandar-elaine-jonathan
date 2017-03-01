@@ -2,8 +2,9 @@ require_relative 'spec_helper'
 require_relative '../lib/cd'
 
 describe Cd do
-  before(:each) do
-    @cd = Cd.new('Mockingbird', 12.99, 10, 'Eminem', 30)
+  before(:context) do
+    # what is the difference between :each and :context?
+    @cd = Cd.new('Mockingbird', 12.99, 10, "Eminem", 30)
   end
 
   # check initialization
@@ -48,23 +49,23 @@ describe Cd do
     end
   end
 
-  # check Methods
   describe "Methods" do
     it "should be able to stock up" do
-      result = @cd.stock(10)
+      result = @cd.stock 10
       expect(result).to eq(true)
       expect(@cd.quantity).to eq(10)
     end
     it "should not be able to sell more items than the current stock" do
-      result = @cd.sell(11)
+      # @cd.quantity = 10
+      result = @cd.sell 11
       expect(result).to eq(false)
       expect(@cd.quantity).to eq(10)
     end
     it "should be able to sell items and update the current stock" do
-      result = @cd.sell(5)
-      expect(result).to eq(false)
+      # @cd.quantity = 10
+      result = @cd.sell 5
+      expect(result).to eq(true)
       expect(@cd.quantity).to eq(5)
     end
   end
-
 end
